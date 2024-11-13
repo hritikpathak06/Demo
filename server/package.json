@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "tsx src/index.js",
-    "build": "tsc",
+    "build": "npm install && tsc",
     "dev": "nodemon"
   },
   "keywords": [],
