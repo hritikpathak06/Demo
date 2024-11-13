@@ -139,7 +139,6 @@ export default function Table({ contacts, setContacts }: any) {
         />
       </Paper>
 
-      {/* Edit Modal */}
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
