@@ -5,9 +5,11 @@ import Modal from "./Modal";
 import { BASE_URL, getContacts } from "../config/api";
 import axios from "axios";
 import toast from "react-hot-toast";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const Dashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -42,8 +44,10 @@ const Dashboard = () => {
 
   useEffect(() => {
     (async () => {
+      setLoading(true);
       const data = await getContacts();
       setContacts(data);
+      setLoading(false);
     })();
   }, []);
 
@@ -290,17 +294,16 @@ const Dashboard = () => {
         margin={"auto"}
       >
         <Grid2
-          height={["max-content","10vh"]}
+          height={["max-content", "10vh"]}
           width={"100%"}
           display={"flex"}
-          flexDirection={["column","row"]}
+          flexDirection={["column", "row"]}
           alignItems={"center"}
           justifyContent={"space-between"}
           borderBottom={"2px solid white"}
           gap="10px"
-          marginBottom={["30px",0]}
-          paddingBottom={["20px",0]}
-          
+          marginBottom={["30px", 0]}
+          paddingBottom={["20px", 0]}
         >
           <h1 className="heading">Contact Details</h1>
           <Button variant="contained" onClick={() => setIsModalOpen(true)}>
@@ -308,9 +311,37 @@ const Dashboard = () => {
           </Button>
         </Grid2>
 
-        <Grid2 height={"85vh"}>
-          <Table contacts={contacts} setContacts={setContacts} />
-        </Grid2>
+        {loading ? (
+          <>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                height: "85vh",
+              }}
+            >
+              <CircularProgress size={"100px"} />
+              <p
+                style={{
+                  marginTop: "16px",
+                  textAlign: "center",
+                  color: "white",
+                  fontSize: "30px",
+                }}
+              >
+                Our website is deployed on Renders free hosting service, which
+                may take 1-2 minutes to start the server. Thank you for your
+                patience!
+              </p>
+            </Box>
+          </>
+        ) : (
+          <Grid2 height={"85vh"}>
+            <Table contacts={contacts} setContacts={setContacts} />
+          </Grid2>
+        )}
       </Grid2>
     </>
   );
