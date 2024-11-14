@@ -331,7 +331,7 @@ const Dashboard = () => {
                   fontSize: "30px",
                 }}
               >
-                Our website is deployed on Renders free hosting service, which
+                Our website is Backend is deployed on Renders free hosting service, which
                 may take 1-2 minutes to start the server. Thank you for your
                 patience!
               </p>
