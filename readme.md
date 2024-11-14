@@ -28,12 +28,14 @@ Ensure you have [Node.js](https://nodejs.org/) installed on your machine.
 **For Server**
    ```bash
    cd server
+   npm install
    npm run dev
    ```
 
 **For Client**
    ```bash
    cd client
+   npm install
    npm run dev
    ```
    
