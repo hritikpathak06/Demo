@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // export const BASE_URL = "http://localhost:8000";
-export const BASE_URL = "https://erino-cms.onrender.com";
+export const BASE_URL = "https://erino.onrender.com";
 
 export const getContacts = async () => {
   try {
@@ -11,4 +11,3 @@ export const getContacts = async () => {
     return error.response.data.msg;
   }
 };
-

@@ -290,12 +290,17 @@ const Dashboard = () => {
         margin={"auto"}
       >
         <Grid2
-          height={"10vh"}
+          height={["max-content","10vh"]}
           width={"100%"}
           display={"flex"}
+          flexDirection={["column","row"]}
           alignItems={"center"}
           justifyContent={"space-between"}
           borderBottom={"2px solid white"}
+          gap="10px"
+          marginBottom={["30px",0]}
+          paddingBottom={["20px",0]}
+          
         >
           <h1 className="heading">Contact Details</h1>
           <Button variant="contained" onClick={() => setIsModalOpen(true)}>
